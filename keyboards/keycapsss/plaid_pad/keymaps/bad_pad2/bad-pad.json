@@ -1,0 +1,39 @@
+[
+  {
+    "backcolor": "#ffffff",
+    "name": "Bad Pad"
+  },
+  [
+    {
+      "a": 0
+    },
+    "7\n\n\nAltF4\nPrev",
+    "8\n\n\nCtrlW\nPlay",
+    "9\n\n\nCtrlF4\nNext",
+    {
+      "a": 4
+    },
+    "/\n\n\n\n\n\n\n\n\nLayer Up"
+  ],
+  [
+    {
+      "a": 0
+    },
+    "4\n\n\nCADel\nVolDn",
+    "5\n\n\n🖥️\nStop",
+    "6\n\n\n🔍\nVolUp",
+    "*\n\n\n🖩\nMute"
+  ],
+  [
+    "1\n\n\nAltTab\nmilkdrop",
+    "2\n\n\nF2\nF2",
+    "3\n\n\nF5\nseekbak",
+    "-\n\n\nF12\nseekfwd"
+  ],
+  [
+    "0\n\n\n😃\nrpt plist",
+    ".\n\n\nPntScn\nshuffle",
+    "=\n\n\nNLock\nnextplist",
+    "+\n\n\nUndo\nrmv trak"
+  ]
+]

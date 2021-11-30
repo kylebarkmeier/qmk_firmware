@@ -1,0 +1,26 @@
+[
+  {
+    "backcolor": "#ff00aa",
+    "name": "Milky Media"
+  },
+  [
+    {
+      "a": 0,
+      "f": 2,
+      "fa": [
+        1,
+        0,
+        1,
+        1
+      ]
+    },
+    "Next\n\nPrev\nStop\nEsc\n\n\n\n\nPlay"
+  ],
+  [
+    {
+      "y": 0.25,
+      "a": 4
+    },
+    "\n\n\nLayerUp\n\n\n\n\n\nSpace"
+  ]
+]
