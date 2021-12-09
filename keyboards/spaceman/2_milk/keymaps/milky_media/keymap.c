@@ -56,9 +56,9 @@ void media_dance_finished(qk_tap_dance_state_t *state, void *user_data) {
         case DOUBLE_HOLD: register_code16(KC_MEDIA_PREV_TRACK); break;
         case DOUBLE_SINGLE_TAP: tap_code16(KC_MEDIA_PLAY_PAUSE); register_code16(KC_MEDIA_PLAY_PAUSE);
     }
-}          
+}
 
-void media_dance_reset(qk_tap_dance_state_t *state, void *user_data) { 
+void media_dance_reset(qk_tap_dance_state_t *state, void *user_data) {
     wait_ms(10);
     switch (media_dance_state[0].step) {
         case SINGLE_TAP: unregister_code16(KC_MEDIA_PLAY_PAUSE); break;
@@ -83,9 +83,41 @@ qk_tap_dance_action_t tap_dance_actions[] = {
 // Delete from playlist: Shift+ctrl+alt+win+DEL (global)
 // Next Playlist: Ctrl+alt+win+N (global)
 
+
+layer_state_t layer_state_set_user(layer_state_t state) {
+	switch (get_highest_layer(state)) {
+    case 1:
+#ifdef RGBLIGHT_ENABLE
+		rgblight_mode(RGBLIGHT_MODE_STATIC_LIGHT);
+        rgblight_setrgb(RGB_PINK);
+#endif
+        break;
+    case 2:
+#ifdef RGBLIGHT_ENABLE
+		rgblight_mode(RGBLIGHT_MODE_STATIC_LIGHT);
+        rgblight_setrgb(RGB_BLUE);
+#endif
+        break;
+    case 3:
+#ifdef RGBLIGHT_ENABLE
+		rgblight_mode(RGBLIGHT_MODE_STATIC_LIGHT);
+        rgblight_setrgb(RGB_PURPLE);
+#endif
+        break;
+    default: //  for any other layers, or the default layer
+#ifdef RGBLIGHT_ENABLE
+        rgblight_mode(RGBLIGHT_MODE_RAINBOW_SWIRL + 3);
+#endif
+        break;
+    }
+    return state;
+}
+
 void keyboard_post_init_user(void) {
+#ifdef RGBLIGHT_ENABLE
   rgblight_enable();
   rgblight_mode(RGBLIGHT_MODE_RAINBOW_SWIRL + 3);
+#endif
 }
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       [0] = LAYOUT(
