@@ -17,3 +17,4 @@
 #pragma once
 
 #define OLED_FONT_H "keyboards/keycapsss/plaid_pad/keymaps/oled/glcdfont.c"
+#define TAPPING_TERM 300

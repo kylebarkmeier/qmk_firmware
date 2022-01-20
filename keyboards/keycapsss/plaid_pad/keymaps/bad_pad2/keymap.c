@@ -19,7 +19,9 @@
 
 // Tap Dance declarations
 enum {
-    TD_SLASH_LAYERS,
+    TD_SLASH_WINDOWS_LAYER,
+    TD_SLASH_MEDIA_LAYER,
+    TD_SLASH_NUMPAD_LAYER
 };
 
 enum layers {
@@ -30,7 +32,9 @@ enum layers {
 
 // Tap Dance definitions
 qk_tap_dance_action_t tap_dance_actions[] = {
-    [TD_SLASH_LAYERS] = ACTION_TAP_DANCE_LAYER_TOGGLE(KC_KP_SLASH, _WINDOWS),
+    [TD_SLASH_WINDOWS_LAYER] = ACTION_TAP_DANCE_LAYER_MOVE(KC_KP_SLASH, _WINDOWS),
+    [TD_SLASH_MEDIA_LAYER] = ACTION_TAP_DANCE_LAYER_MOVE(KC_WAKE, _MEDIA),
+    [TD_SLASH_NUMPAD_LAYER] = ACTION_TAP_DANCE_LAYER_MOVE(KC_WAKE, _NUMPAD)
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -46,7 +50,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     * `-----------------------'
     */
     [_NUMPAD] = LAYOUT_ortho_4x4(
-        KC_P7, KC_P8,   KC_P9,    TD(TD_SLASH_LAYERS),
+        KC_P7, KC_P8,   KC_P9,    TD(TD_SLASH_WINDOWS_LAYER),
         KC_P4, KC_P5,   KC_P6,    KC_PAST,
         KC_P1, KC_P2,   KC_P3,    KC_PMNS,
         KC_P0, KC_PDOT, KC_PEQL,  KC_PPLS
@@ -67,7 +71,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     * `-----------------------'
     */
     [_WINDOWS] = LAYOUT_ortho_4x4(
-	    LALT(KC_F4),  	      LCTL(KC_W),    LCTL(KC_F4),  TO(_MEDIA),    
+	    LALT(KC_F4),  	      LCTL(KC_W),    LCTL(KC_F4),  TD(TD_SLASH_MEDIA_LAYER),
         LCA(KC_DELETE),       KC_MYCM,       KC_FIND,      KC_CALC,
         LALT(KC_TAB),         KC_F2,         KC_F5,        KC_F12,
         LGUI(KC_DOT),         KC_PSCREEN,    KC_NLCK,      KC_UNDO
@@ -88,7 +92,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     * `-----------------------'
     */
     [_MEDIA] = LAYOUT_ortho_4x4(
-        KC_MEDIA_PREV_TRACK, KC_MEDIA_PLAY_PAUSE, KC_MEDIA_NEXT_TRACK, TO(_NUMPAD),
+        KC_MEDIA_PREV_TRACK, KC_MEDIA_PLAY_PAUSE, KC_MEDIA_NEXT_TRACK, TD(TD_SLASH_NUMPAD_LAYER),
         KC_AUDIO_VOL_DOWN,   KC_MEDIA_STOP,       KC_AUDIO_VOL_UP,     KC_AUDIO_MUTE,
         HYPR(KC_M),          KC_F2,               RCS(KC_LEFT),        RCS(KC_RIGHT),
         RCS(KC_R),           RCS(KC_S),           LCAG(KC_N),          HYPR(KC_DELETE)
